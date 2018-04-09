@@ -4,7 +4,7 @@
 #
 Name     : R-lfe
 Version  : 2.6.2291
-Release  : 2
+Release  : 3
 URL      : https://cran.r-project.org/src/contrib/lfe_2.6-2291.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/lfe_2.6-2291.tar.gz
 Summary  : Linear Group Fixed Effects
@@ -41,11 +41,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1521206285
+export SOURCE_DATE_EPOCH=1523313393
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1521206285
+export SOURCE_DATE_EPOCH=1523313393
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
