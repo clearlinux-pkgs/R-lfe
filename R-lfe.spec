@@ -4,16 +4,13 @@
 #
 Name     : R-lfe
 Version  : 2.8.2
-Release  : 16
+Release  : 17
 URL      : https://cran.r-project.org/src/contrib/lfe_2.8-2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/lfe_2.8-2.tar.gz
 Summary  : Linear Group Fixed Effects
 Group    : Development/Tools
 License  : Artistic-2.0
 Requires: R-lfe-lib
-Requires: R-Formula
-Requires: R-sandwich
-Requires: R-xtable
 BuildRequires : R-Formula
 BuildRequires : R-sandwich
 BuildRequires : R-xtable
@@ -50,11 +47,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1534954635
+export SOURCE_DATE_EPOCH=1534975817
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1534954635
+export SOURCE_DATE_EPOCH=1534975817
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
