@@ -4,16 +4,18 @@
 #
 Name     : R-lfe
 Version  : 2.8.2
-Release  : 20
+Release  : 21
 URL      : https://cran.r-project.org/src/contrib/lfe_2.8-2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/lfe_2.8-2.tar.gz
 Summary  : Linear Group Fixed Effects
 Group    : Development/Tools
 License  : Artistic-2.0
-Requires: R-lfe-lib
+Requires: R-lfe-lib = %{version}-%{release}
+Requires: R-zoo
 BuildRequires : R-Formula
 BuildRequires : R-sandwich
 BuildRequires : R-xtable
+BuildRequires : R-zoo
 BuildRequires : buildreq-R
 BuildRequires : texlive
 
@@ -47,11 +49,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1534975817
+export SOURCE_DATE_EPOCH=1552876957
 
 %install
+export SOURCE_DATE_EPOCH=1552876957
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1534975817
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -86,8 +88,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library lfe|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  lfe || :
 
 
 %files
@@ -132,7 +133,44 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/lfe/help/paths.rds
 /usr/lib64/R/library/lfe/html/00Index.html
 /usr/lib64/R/library/lfe/html/R.css
-/usr/lib64/R/library/lfe/libs/symbols.rds
+/usr/lib64/R/library/lfe/tests/anomalies.R
+/usr/lib64/R/library/lfe/tests/anomalies.Rout.save
+/usr/lib64/R/library/lfe/tests/bctest.R
+/usr/lib64/R/library/lfe/tests/bctest.Rout.save
+/usr/lib64/R/library/lfe/tests/cgsolve.R
+/usr/lib64/R/library/lfe/tests/cgsolve.Rout.save
+/usr/lib64/R/library/lfe/tests/cluster.R
+/usr/lib64/R/library/lfe/tests/cluster.Rout.save
+/usr/lib64/R/library/lfe/tests/comparelm.R
+/usr/lib64/R/library/lfe/tests/comparelm.Rout.save
+/usr/lib64/R/library/lfe/tests/degenerate.R
+/usr/lib64/R/library/lfe/tests/degenerate.Rout.save
+/usr/lib64/R/library/lfe/tests/efcheck.R
+/usr/lib64/R/library/lfe/tests/efcheck.Rout.save
+/usr/lib64/R/library/lfe/tests/fourfac.R
+/usr/lib64/R/library/lfe/tests/fourfac.Rout.save
+/usr/lib64/R/library/lfe/tests/intact.R
+/usr/lib64/R/library/lfe/tests/intact.Rout.save
+/usr/lib64/R/library/lfe/tests/interact.R
+/usr/lib64/R/library/lfe/tests/interact.Rout.save
+/usr/lib64/R/library/lfe/tests/ivtest.R
+/usr/lib64/R/library/lfe/tests/ivtest.Rout.save
+/usr/lib64/R/library/lfe/tests/lfetest.R
+/usr/lib64/R/library/lfe/tests/lfetest.Rout.save
+/usr/lib64/R/library/lfe/tests/mlhs.R
+/usr/lib64/R/library/lfe/tests/mlhs.Rout.save
+/usr/lib64/R/library/lfe/tests/multiway.R
+/usr/lib64/R/library/lfe/tests/multiway.Rout.save
+/usr/lib64/R/library/lfe/tests/naomit.R
+/usr/lib64/R/library/lfe/tests/naomit.Rout.save
+/usr/lib64/R/library/lfe/tests/nonest.R
+/usr/lib64/R/library/lfe/tests/nonest.Rout.save
+/usr/lib64/R/library/lfe/tests/onefac.R
+/usr/lib64/R/library/lfe/tests/onefac.Rout.save
+/usr/lib64/R/library/lfe/tests/verify.R
+/usr/lib64/R/library/lfe/tests/verify.Rout.save
+/usr/lib64/R/library/lfe/tests/weights.R
+/usr/lib64/R/library/lfe/tests/weights.Rout.save
 
 %files extras
 %defattr(-,root,root,-)
