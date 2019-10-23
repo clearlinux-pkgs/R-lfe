@@ -4,7 +4,7 @@
 #
 Name     : R-lfe
 Version  : 2.8.3
-Release  : 29
+Release  : 30
 URL      : https://cran.r-project.org/src/contrib/lfe_2.8-3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/lfe_2.8-3.tar.gz
 Summary  : Linear Group Fixed Effects
@@ -12,14 +12,17 @@ Group    : Development/Tools
 License  : Artistic-2.0
 Requires: R-lfe-lib = %{version}-%{release}
 Requires: R-Formula
+Requires: R-igraph
 Requires: R-sandwich
 Requires: R-xtable
-Requires: R-zoo
 BuildRequires : R-Formula
+BuildRequires : R-igraph
 BuildRequires : R-sandwich
 BuildRequires : R-xtable
 BuildRequires : R-zoo
 BuildRequires : buildreq-R
+BuildRequires : texlive
+BuildRequires : util-linux
 
 %description
 Useful for estimating linear models with multiple group fixed effects, and for
@@ -50,13 +53,13 @@ lib components for the R-lfe package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1553694943
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1571854618
 
 %install
-export SOURCE_DATE_EPOCH=1553694943
+export SOURCE_DATE_EPOCH=1571854618
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -85,17 +88,16 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  lfe || :
+R CMD check --no-manual --no-examples --no-codoc lfe || :
 
 
 %files
 %defattr(-,root,root,-)
-%exclude /usr/lib64/R/library/lfe/exec/lfescript
 /usr/lib64/R/library/lfe/CITATION
 /usr/lib64/R/library/lfe/DESCRIPTION
 /usr/lib64/R/library/lfe/INDEX
