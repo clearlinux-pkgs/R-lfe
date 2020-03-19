@@ -4,7 +4,7 @@
 #
 Name     : R-lfe
 Version  : 2.8.5
-Release  : 34
+Release  : 35
 URL      : https://cran.r-project.org/src/contrib/lfe_2.8-5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/lfe_2.8-5.tar.gz
 Summary  : Linear Group Fixed Effects
